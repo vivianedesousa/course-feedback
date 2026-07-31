@@ -1,0 +1,207 @@
+{
+  "info": {
+    "_postman_id": "5fa1917e-f7cd-4804-97d5-a95d555cf398",
+    "name": "Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50587301",
+    "_collection_link": "https://go.postman.co/collection/50587301-5fa1917e-f7cd-4804-97d5-a95d555cf398?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "course-feedback",
+      "item": [
+        {
+          "name": "ADMIN",
+          "item": [
+            {
+              "name": "Admin logging into the account",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"admin@coursefeedback.com\",\n  \"password\": \"123456789\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/auth/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Criarndo cursos",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Software Engineering\",\n  \"description\": \"Introduction to software engineering concepts and practices.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/courses",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "courses"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Reports",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"periodStart\": \"2026-07-28\",\n  \"periodEnd\": \"2026-07-28\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/v1/api/admin/reports/generate",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "v1",
+                    "api",
+                    "admin",
+                    "reports",
+                    "generate"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "STUDENT",
+          "item": [
+            {
+              "name": "Student registering",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"João Silva\",\n  \"email\": \"joao@email.com\",\n  \"password\": \"1234569098\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/auth/register",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Student creating feedback",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "\n{\n  \"userId\": \"7ca5ca97-56e0-4dd2-9320-ce9d8094f8fb\",\n  \"courseId\": \"c6d8d1d2-7b0d-4d53-8b7b-5c8e8f4a1234\",\n  \"description\": \"The course had several issues that affected the learning experience.\",\n  \"rating\": 3\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/feedbacks",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "feedbacks"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
